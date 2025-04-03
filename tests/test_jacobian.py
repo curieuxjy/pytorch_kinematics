@@ -182,7 +182,8 @@ def test_comparison_to_autograd():
     try:
         import functorch
         ft_start = timer()
-        grad_func = torch.vmap(functorch.jacrev(get_pt))
+        # grad_func = torch.vmap(functorch.jacrev(get_pt)) # `functorch.jacrev` is deprecated as of PyTorch 2.0 and will be deleted in a future version of PyTorch >= 2.3.
+        grad_func = torch.vmap(torch.func.jacrev(get_pt))
         j3 = grad_func(th).squeeze(1)
         ft_end = timer()
         assert torch.allclose(j1_, j3, atol=1e-6)

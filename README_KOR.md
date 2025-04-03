@@ -1,4 +1,5 @@
-> Translated in Korean of README.md
+> [!NOTE]  
+> README.md 한국어 번역
 
 # PyTorch 로봇 운동학
 - 병렬 및 미분 가능한 순방향 운동학(FK), Jacobian 계산, 감쇠 최소자승법(damped least squares)을 통한 역운동학(IK)
@@ -12,7 +13,14 @@ pip install pytorch-kinematics
 
 개발 모드에서는 저장소를 클론한 뒤, `pip3 install -e .` 명령어로 수정 가능한 상태로 설치합니다.
 
-## 참고
+> [!TIP]  
+> (`pyproject.toml` 파일에 `requires-python = ">=3.6"`라고 명시. Python 3.10으로 테스트. )
+> - `pip install mujoco`: `build_chain_from_mjcf` 함수 이용시 필요 (`src/pytorch_kinematics/__init__.py`)
+> - `tests/mujoco_menagerie`: [mujoco_menagerie](https://github.com/google-deepmind/mujoco_menagerie) 소스 가져오기
+> - `pip install pybullet`: `tests/test_inverse_kinematics.py` 실행시 필요
+> - `tests/` 폴더 내의 모든 python script 확인: `for file in *.py; do python "$file"; done`
+
+## Reference
 [![DOI](https://zenodo.org/badge/331721571.svg)](https://zenodo.org/badge/latestdoi/331721571)
 
 이 패키지를 연구에 사용한 경우 다음과 같이 인용해 주세요.
